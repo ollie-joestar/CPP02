@@ -10,6 +10,7 @@ int main( void ) {
 	
 	std::cout << "Value of a: 				" << a << std::endl;
 	std::cout << "Value of a pre-increment:		" << ++a << std::endl;
+	std::cout << "Value of a pre-increment:		" << ++a << std::endl;
 	std::cout << "Value of a after pre-increment:		" << a << std::endl;
 	std::cout << "Value of a post-increment:		" << a++ << std::endl;
 	std::cout << "Value of a after post-increment:	" << a << std::endl;

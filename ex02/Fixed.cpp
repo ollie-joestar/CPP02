@@ -89,37 +89,35 @@ bool Fixed::operator>=(const Fixed &other) {
 	return false;
 }
 
-Fixed &Fixed::operator+(const Fixed &other) const {
-	Fixed *result = new Fixed();
-	result->setRawBits(this->getRawBits() + other.getRawBits());
-	return *result;
+Fixed Fixed::operator+(const Fixed &other) const {
+	Fixed result;
+	result.setRawBits(this->getRawBits() + other.getRawBits());
+	return result;
 }
 
-Fixed &Fixed::operator-(const Fixed &other) const {
-	Fixed *result = new Fixed();
-	result->setRawBits(this->getRawBits() - other.getRawBits());
-	return *result;
+Fixed Fixed::operator-(const Fixed &other) const {
+	Fixed result;
+	result.setRawBits(this->getRawBits() - other.getRawBits());
+	return result;
 }
 
-Fixed &Fixed::operator*(const Fixed &other) const {
-	Fixed *result = new Fixed();
+Fixed Fixed::operator*(const Fixed &other) const {
+	Fixed result;
 	long long mul = (long long)this->getRawBits() * (long long)other.getRawBits();
-	result->setRawBits((int)(mul >> this->fbits));
-	return *result;
+	result.setRawBits((int)(mul >> this->fbits));
+	return result;
 }
 
-Fixed &Fixed::operator/(const Fixed &other) const {
-	Fixed *result = new Fixed();
+Fixed Fixed::operator/(const Fixed &other) const {
+	Fixed result;
 	if (other.getRawBits() == 0) {
 		std::cerr << "Error: Division by zero" << std::endl;
-		result->setRawBits(0);
-		return *result;
+		result.setRawBits(0);
+		return result;
 	}
-	// std::cout << "Dividing " << (this->getRawBits() << this->fbits) << " by " << other.getRawBits() << std::endl;
 	long long div = ((long long)this->getRawBits() << this->fbits) / (long long)other.getRawBits();
-	// std::cout << "Result raw bits: " << div << std::endl;
-	result->setRawBits((int)div);
-	return *result;
+	result.setRawBits((int)div);
+	return result;
 }
 
 Fixed &Fixed::operator++() {
