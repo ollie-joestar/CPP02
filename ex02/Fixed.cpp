@@ -127,10 +127,10 @@ Fixed &Fixed::operator++() {
 	return *this;
 }
 
-Fixed &Fixed::operator++(int) {
-	Fixed	*temp = new Fixed(*this);
+Fixed Fixed::operator++(int) {
+	Fixed	temp = *this;
 	this->value++;
-	return *temp;
+	return temp;
 }
 
 Fixed &Fixed::operator--() {
@@ -138,10 +138,10 @@ Fixed &Fixed::operator--() {
 	return *this;
 }
 
-Fixed &Fixed::operator--(int) {
-	Fixed	*temp = new Fixed(*this);
+Fixed Fixed::operator--(int) {
+	Fixed	temp = *this;
 	this->value--;
-	return *temp;
+	return temp;
 }
 
 Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
